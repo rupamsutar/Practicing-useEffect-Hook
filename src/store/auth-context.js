@@ -15,10 +15,10 @@ export const AuthContextProvider = (props) => {
         if (storageLoggedInInformation === "1") {
             setIsLoggedIn(true);
         }
-    }, [])
+    }, []);
 
 
-    const loginHandler = () => {
+    const loginHandler = (email, pass) => {
         localStorage.setItem("isLoggedIn", "1");
         setIsLoggedIn(true);
     };
@@ -34,7 +34,7 @@ export const AuthContextProvider = (props) => {
         <AuthContext.Provider 
             value = { 
                 {
-                    isLoggedin: isLoggedIn,
+                    isLoggedIn: isLoggedIn,
                     onLogin: loginHandler,
                     onLogout: logoutHandler
                 }
