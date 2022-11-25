@@ -1,4 +1,4 @@
-import React, { useState, useReducer, useContext } from 'react'; 
+import React, { useState, useReducer, useContext} from 'react'; 
 
 import Card from '../UI/Card/Card';
 import classes from './Login.module.css';
@@ -22,7 +22,6 @@ const emailReducer = (state, action) => {
 };
 
 const Login = () => {
-
   const ctx = useContext(AuthContext);
   const [formIsValid, setFormIsValid] = useState(false);
   const [state, dispatchState] = useReducer(emailReducer, 
@@ -59,27 +58,18 @@ const Login = () => {
 
   const submitHandler = (event) => {
     event.preventDefault();
-    ctx.onLogin();
+    if (formIsValid) {
+      ctx.onLogin();
+    } else if (!emailIsValid) {
+
+    } else {
+
+    }
   };
 
   return (
     <Card className={classes.login}>
       <form onSubmit={submitHandler}>
-
-        {/* <div
-          className={`${classes.control} ${
-            state.emailIsValid === false ? classes.invalid : ''
-          }`}
-        >
-          <label htmlFor="email">E-Mail</label>
-          <input
-            type="email"
-            id="email"
-            value={state.emailValue}
-            onChange={emailChangeHandler}
-            onBlur={validateEmailHandler}
-          />
-        </div> */}
 
         <Input 
           className={state.emailIsValid === false ? "invalid" : ""}
@@ -97,27 +87,10 @@ const Login = () => {
           onBlur={validatePasswordHandler}
         />
 
-        {/* <div
-          className={`${classes.control} ${
-            state.passwordIsValid === false ? classes.invalid : ''
-          }`}
-        >
-          <label htmlFor="password">Password</label>
-          <input
-            type="password"
-            id="password"
-            value={state.passwordValue}
-            onChange={passwordChangeHandler}
-            onBlur={validatePasswordHandler}
-          />
-        </div> */}
-
-
         <div className={classes.actions}>
           <Button 
             type="submit" 
             className={classes.btn}
-            disabled={!formIsValid}
           >
             Login
           </Button>
