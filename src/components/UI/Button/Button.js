@@ -1,10 +1,7 @@
-import React,{ useContext } from 'react';
-import AuthContext from '../../../store/auth-context';
+import React from 'react';
 import classes from './Button.module.css';
 
 const Button = (props) => {
-
-  const ctx = useContext(AuthContext);
 
   return (
     <button
