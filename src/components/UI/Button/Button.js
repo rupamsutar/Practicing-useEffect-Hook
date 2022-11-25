@@ -4,13 +4,13 @@ import classes from './Button.module.css';
 
 const Button = (props) => {
 
-  const ctx = useContext(AuthContext)
+  const ctx = useContext(AuthContext);
 
   return (
     <button
       type={props.type || 'button'}
       className={`${classes.button} ${props.className}`}
-      onClick={props.onclick}
+      
       disabled={props.disabled}
     >
       {props.children}

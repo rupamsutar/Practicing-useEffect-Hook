@@ -61,7 +61,7 @@ const Login = () => {
 
   const submitHandler = (event) => {
     event.preventDefault();
-    ctx.onLogin(state.emailValue, state.passwordValue);
+    ctx.onLogin();
   };
 
   return (
@@ -96,7 +96,11 @@ const Login = () => {
           />
         </div>
         <div className={classes.actions}>
-          <Button type="submit" className={classes.btn} disabled={!formIsValid}>
+          <Button 
+            type="submit" 
+            className={classes.btn}
+            disabled={!formIsValid}
+          >
             Login
           </Button>
         </div>
